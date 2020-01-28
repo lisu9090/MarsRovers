@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MarsRoversInfrastructure.Views
 {
-    interface IView
+    public interface IView
     {
         string Process(string input);
     }

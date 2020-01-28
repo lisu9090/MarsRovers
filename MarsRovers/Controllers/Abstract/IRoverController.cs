@@ -5,11 +5,12 @@ using System.Text;
 
 namespace MarsRovers.Controllers.Abstract
 {
-    interface IRoversController
+    interface IMissionController
     {
         int CreatePlateau(int x, int y);
         int CreateRover(int x, int y, string direction);
         int SetMovementInstructons(string instructions);
+        int Reset();
         IEnumerable<BaseModel> GetRoversPositions();
     }
 }
