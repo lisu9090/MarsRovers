@@ -18,7 +18,7 @@ namespace MarsRovers.Models
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return string.Format("{0} {1}", X, Y);
         }
     }
 }

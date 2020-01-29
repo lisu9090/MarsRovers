@@ -7,10 +7,10 @@ namespace MarsRovers.Controllers.Abstract
 {
     interface IMissionController
     {
-        int CreatePlateau(int x, int y);
-        int CreateRover(int x, int y, string direction);
-        int SetMovementInstructons(string instructions);
-        int Reset();
-        IEnumerable<BaseModel> GetRoversPositions();
+        string CreatePlateau(string payload);
+        string CreateRover(string payload);
+        string SetMovementInstructions(string instructions);
+        string Reset();
+        string GetRoversPositions();
     }
 }

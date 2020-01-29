@@ -2,6 +2,9 @@
 using MarsRovers.Models;
 using MarsRovers.Repositories;
 using MarsRovers.Repositories.Abstract;
+using MarsRovers.Services;
+using MarsRovers.Services.Abstract;
+using MarsRoversInfrastructure.Facade;
 using MarsRoversInfrastructure.Models;
 using MarsRoversInfrastructure.Repositories;
 using System;
@@ -12,39 +15,76 @@ namespace MarsRovers.Controllers
 {
     internal class MissionController : IMissionController
     {
-        protected IModelRepository _plateauRepository = new PlateauRepository();
-        protected IRoversRepository _roversRepository = new RoversRepository();
-        public int CreatePlateau(int x, int y)
+        protected IMissionService _missionService = new MissionService();
+        
+        public string CreatePlateau(string payload)
         {
-            _plateauRepository.AddModel(new PlateauModel(x, y));
-            return 0;
+            try
+            {
+                var data = payload.Split(' ');
+                _missionService.CreatePlateau(int.Parse(data[0]), int.Parse(data[1]));
+            }
+            catch(Exception e)
+            {
+                return ControllerCodes.ERROR_CODE + " " + e.Message;
+            }
+
+            return ControllerCodes.OK_CODE;
         }
 
-        public int CreateRover(int x, int y, string direction)
+        public string CreateRover(string payload)
         {
-            _roversRepository.AddModel(new RoverModel(x, y, direction));
-            
-            return 0;
+            try
+            {
+                var data = payload.Split(' ');
+                _missionService.CreateRover(int.Parse(data[0]), int.Parse(data[1]), data[2]);
+            }
+            catch(Exception e)
+            {
+                return ControllerCodes.ERROR_CODE + " " + e.Message;
+            }
+
+            return ControllerCodes.OK_CODE;
         }
 
-        public IEnumerable<BaseModel> GetRoversPositions()
+        public string GetRoversPositions()
         {
-            return _roversRepository.GetModels();
+            try
+            {
+                return _missionService.GetRoversPositions(); ;
+            }
+            catch(Exception e)
+            {
+                return ControllerCodes.ERROR_CODE + " " + e.Message;
+            }
         }
 
-        public int Reset()
+        public string Reset()
         {
-            _plateauRepository.Reset();
-            _roversRepository.Reset();
+            try
+            {
+                _missionService.Reset();
+            }
+            catch(Exception e)
+            {
+                return ControllerCodes.ERROR_CODE + " " + e.Message;
+            }
 
-            return 0;
+            return ControllerCodes.OK_CODE;
         }
 
-        public int SetMovementInstructons(string instructions)
+        public string SetMovementInstructions(string instructions)
         {
-            _roversRepository.UpdateRoverMovementInstructions(instructions);
+            try
+            {
+                _missionService.SetMovementInstructions(instructions);
+            }
+            catch(Exception e)
+            {
+                return ControllerCodes.ERROR_CODE + " " + e.Message;
+            }
 
-            return 0;
+            return ControllerCodes.OK_CODE;
         }
     }
 }

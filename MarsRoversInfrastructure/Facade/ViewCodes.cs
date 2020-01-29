@@ -8,6 +8,7 @@ namespace MarsRoversInfrastructure.Facade
     {
         public const string EXIT_CODE = "EXIT";
         public const string RESET_CODE = "RESET";
+        public const string PRINT_CODE = "PRINT";
         public const string UNRECOGNIZED_CODE = "UNRECOGNIZED";
     }
 }

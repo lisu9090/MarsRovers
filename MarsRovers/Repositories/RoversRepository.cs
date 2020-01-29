@@ -12,7 +12,7 @@ namespace MarsRovers.Repositories
         protected Stack<RoverModel> _roverStack = new Stack<RoverModel>();
         public void AddModel(BaseModel model)
         {
-            if (model.GetType().Equals(typeof(RoverModel)))
+            if (model.GetType().Name.Contains("RoverModel"))
                 _roverStack.Push((RoverModel)model);
         }
 
