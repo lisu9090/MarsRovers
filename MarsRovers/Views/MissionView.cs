@@ -12,9 +12,9 @@ namespace MarsRovers.Views
     internal class MissionView : IView
     {
         protected IMissionController _controller = new MissionController();
-        protected readonly Regex _plateauRegex = new Regex(@"^\d \d$", RegexOptions.IgnoreCase);
-        protected readonly Regex _roverRegex = new Regex(@"^\d \d [NESW]$", RegexOptions.IgnoreCase);
-        protected readonly Regex _instructionsRegex = new Regex(@"^[LRM]+ $", RegexOptions.IgnoreCase);
+        protected readonly Regex _plateauRegex = new Regex(@"^\d{1,3} \d{1,3}$", RegexOptions.IgnoreCase);
+        protected readonly Regex _roverRegex = new Regex(@"^\d{1,3} \d{1,3} [NESW]$", RegexOptions.IgnoreCase);
+        protected readonly Regex _instructionsRegex = new Regex(@"^[LRM]+$", RegexOptions.IgnoreCase);
        
         public string Process(string input)
         {

@@ -14,6 +14,7 @@ namespace MarsRovers.Services
     {
         protected IModelRepository _plateauRepository = new PlateauRepository();
         protected IRoversRepository _roversRepository = new RoversRepository();
+        protected readonly List<string> _compasPositions = new List<string>() {"N", "E", "S", "W" };
 
         public void CreatePlateau(int x, int y)
         {
@@ -27,11 +28,15 @@ namespace MarsRovers.Services
 
         public string GetRoversPositions()
         {
-            _roversRepository.GetModels();
+            var rovers = _roversRepository.GetModels();
+            StringBuilder output = new StringBuilder();
 
-            //todo
+            foreach(var item in rovers)
+            {
+                output.Insert(0, CalculateRoverFinalPosition((RoverModel)item) + "\n");
+            }
 
-            return "";
+            return output.ToString();
         }
 
         public void Reset()
@@ -44,6 +49,60 @@ namespace MarsRovers.Services
         {
             _roversRepository.UpdateRoverMovementInstructions(instructions);
         }
+
+        protected string CalculateRoverFinalPosition(RoverModel rover)
+        {
+            var tmp = (RoverModel)rover.Clone();
+            var instructionsArray = tmp.MovementInstructions.ToUpper().Split("M");
+
+            for (int i = 0; i < instructionsArray.Length; i++)
+            {
+                if (!string.IsNullOrEmpty(instructionsArray[i]))
+                {
+                    SpinRover(ref tmp, instructionsArray[i]);
+                }
+                if (i == instructionsArray.Length - 1)
+                {
+                    break;
+                }
+
+                MoveRover(ref tmp);
+            }
+
+            return tmp.ToString();
+        }
+
+        protected void SpinRover(ref RoverModel rover, string spinInstructions)
+        {
+            var directionIndex = 0;
+            foreach(var instruction in spinInstructions.ToUpper())
+            {
+                directionIndex = _compasPositions.IndexOf(rover.Direction.ToUpper());
+
+                if(("" + instruction).Equals("L"))
+                    rover.Direction = _compasPositions[--directionIndex < 0 ? _compasPositions.Count - 1 : directionIndex];
+                else if (("" + instruction).Equals("R"))
+                    rover.Direction = _compasPositions[++directionIndex == _compasPositions.Count ? 0 : directionIndex];
+            }
+        }
+
+        protected void MoveRover(ref RoverModel rover)
+        {
+            switch (rover.Direction.ToUpper())
+            {
+                case "N":
+                    rover.Y++;
+                    break;
+                case "E":
+                    rover.X++;
+                    break;
+                case "S":
+                    rover.Y--;
+                    break;
+                case "W":
+                    rover.X--;
+                    break;
+            }
+        }
     }
-}
 }

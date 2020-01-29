@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MarsRovers.Models
 {
-    internal class RoverModel : BaseModel
+    internal class RoverModel : BaseModel, ICloneable
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -22,6 +22,13 @@ namespace MarsRovers.Models
         public override string ToString()
         {
             return string.Format("{0} {1} {2}", X, Y, Direction);
+        }
+
+        public object Clone()
+        {
+            var clone = new RoverModel(X, Y, Direction);
+            clone.MovementInstructions = MovementInstructions;
+            return clone;
         }
     }
 }
