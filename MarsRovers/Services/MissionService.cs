@@ -16,6 +16,9 @@ namespace MarsRovers.Services
         protected IRoversRepository _roversRepository;
         protected readonly List<string> _compasPositions = new List<string>() {"N", "E", "S", "W" };
 
+        // Service contains bussiness logic
+        // It receives data from controller and process it
+
         public MissionService() : this(new PlateauRepository(), new RoversRepository()) { }
 
         public MissionService(IModelRepository plateauRepository, IRoversRepository roversRepository)
@@ -41,6 +44,7 @@ namespace MarsRovers.Services
 
             foreach(var item in rovers)
             {
+                // Using Insert insead of Append because collection is stack
                 output.Insert(0, CalculateRoverFinalPosition((RoverModel)item) + "\n");
             }
 
@@ -58,22 +62,28 @@ namespace MarsRovers.Services
             _roversRepository.UpdateRoverMovementInstructions(instructions);
         }
 
+        // Calculates and returns rovers final position
         protected string CalculateRoverFinalPosition(RoverModel rover)
         {
+            //Coppy rover
             var tmp = (RoverModel)rover.Clone();
+            //Get instructions and split by M. Received array contains only spin instructions
             var instructionsArray = tmp.MovementInstructions.ToUpper().Split("M");
 
             for (int i = 0; i < instructionsArray.Length; i++)
             {
                 if (!string.IsNullOrEmpty(instructionsArray[i]))
                 {
+                    // If element is not empty spin it
                     SpinRover(ref tmp, instructionsArray[i]);
                 }
                 if (i == instructionsArray.Length - 1)
                 {
+                    // Prevent from moving forward in last iteration (side effect of Split method)
                     break;
                 }
 
+                // Move in forward in current direcion
                 MoveRover(ref tmp);
             }
 
@@ -83,7 +93,14 @@ namespace MarsRovers.Services
         protected void SpinRover(ref RoverModel rover, string spinInstructions)
         {
             var directionIndex = 0;
-            foreach(var instruction in spinInstructions.ToUpper())
+
+            // Find index of current direction in _compasPositions
+            // Loop through instructuions
+            // If spin left then use decremented direction index to set rovers direction
+            // If spin right then use incremented direction index to set rovers direction
+            // Don't forget about arrays edges (Index out of range)
+
+            foreach (var instruction in spinInstructions.ToUpper())
             {
                 directionIndex = _compasPositions.IndexOf(rover.Direction.ToUpper());
 

@@ -15,6 +15,7 @@ namespace MarsRovers.UnitTests.Repositories
             var roversRepository = new RoversRepository();
             var expectedData = new RoverModel(1, 2, "E");
 
+            // This test need to combine AddModel and GetModels method because repository doesn't allow for direct access to its 
             roversRepository.AddModel(expectedData);
             var dataEnummerator = roversRepository.GetModels().GetEnumerator();
             dataEnummerator.MoveNext();
@@ -31,6 +32,7 @@ namespace MarsRovers.UnitTests.Repositories
             int expectedData = 0;
             var actualData = 0;
 
+            // This test need to combine AddModel and Reset method because repository doesn't allow for direct access to its content
             roversRepository.AddModel(sampleData);
             roversRepository.Reset();
 
@@ -49,6 +51,7 @@ namespace MarsRovers.UnitTests.Repositories
             var roversRepository = new RoversRepository();
             var expectedData = "RMMRMMRRMR";
 
+            // This test need to combine AddModel and UpdateRoverMovementInstructions method because repository doesn't allow for direct access to its content
             roversRepository.AddModel(new RoverModel(1, 2, "E"));
             roversRepository.UpdateRoverMovementInstructions(expectedData);
 

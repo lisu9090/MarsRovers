@@ -9,6 +9,10 @@ namespace MarsRovers.Repositories
     public class PlateauRepository : IModelRepository
     {
         protected Stack<BaseModel> _plateauStack = new Stack<BaseModel>();
+
+        // Plateau repository provides access to Plateau data
+        // It is restricted to contain only one item
+
         public void AddModel(BaseModel model)
         {
             if (_plateauStack.Count > 0 && !model.GetType().Name.Contains("PlateauModel"))

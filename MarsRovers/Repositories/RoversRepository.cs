@@ -10,6 +10,11 @@ namespace MarsRovers.Repositories
     public class RoversRepository : IRoversRepository
     {
         protected Stack<RoverModel> _roverStack = new Stack<RoverModel>();
+
+        // RoversRepository provides access to rovers data
+        // The number of contained elements is not restricted
+        // provides method to update last items movement instruciotns  
+
         public void AddModel(BaseModel model)
         {
             if (model.GetType().Name.Contains("RoverModel"))
