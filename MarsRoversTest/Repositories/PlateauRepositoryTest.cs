@@ -15,7 +15,7 @@ namespace MarsRovers.UnitTests.Repositories
             var plateauRepository = new PlateauRepository();
             var expectedData = new PlateauModel(1, 2);
 
-            // This test need to combine AddModel and GetModels method because repository doesn't allow for direct access to its content
+            // This test need to combine AddModel and GetModels method because repository doesn't allow for direct access to it's content
             plateauRepository.AddModel(expectedData);
             var dataEnummerator = plateauRepository.GetModels().GetEnumerator();
             dataEnummerator.MoveNext();
@@ -32,7 +32,7 @@ namespace MarsRovers.UnitTests.Repositories
             int expectedData = 0;
             var actualData = 0;
 
-            // This test need to combine AddModel and Reset method because repository doesn't allow for direct access to its content
+            // This test need to combine AddModel and Reset method because repository doesn't allow for direct access to it's content
             plateauRepository.AddModel(sampleData);
             plateauRepository.Reset();
 

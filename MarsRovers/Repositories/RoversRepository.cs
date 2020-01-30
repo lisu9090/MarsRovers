@@ -13,7 +13,7 @@ namespace MarsRovers.Repositories
 
         // RoversRepository provides access to rovers data
         // The number of contained elements is not restricted
-        // provides method to update last items movement instruciotns  
+        // provides method to update last item's movement instruciotns  
 
         public void AddModel(BaseModel model)
         {

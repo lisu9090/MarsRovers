@@ -18,7 +18,7 @@ namespace MarsRovers.Controllers
         protected IMissionService _missionService;
 
         // Controllers preprocess data received from view and pass it to service
-        // Then it grabs service output and response to view with status code or data
+        // Then it grabs service's output and response to view with status code or data
         // Moreover controller handles error which might occur during processing data
 
         public MissionController() : this(new MissionService()) { }

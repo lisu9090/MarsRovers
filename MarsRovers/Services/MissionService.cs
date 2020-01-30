@@ -62,7 +62,7 @@ namespace MarsRovers.Services
             _roversRepository.UpdateRoverMovementInstructions(instructions);
         }
 
-        // Calculates and returns rovers final position
+        // Calculates and returns rover's final position
         protected string CalculateRoverFinalPosition(RoverModel rover)
         {
             //Coppy rover
@@ -74,7 +74,7 @@ namespace MarsRovers.Services
             {
                 if (!string.IsNullOrEmpty(instructionsArray[i]))
                 {
-                    // If element is not empty spin it
+                    // If element is not empty - spin it
                     SpinRover(ref tmp, instructionsArray[i]);
                 }
                 if (i == instructionsArray.Length - 1)
@@ -96,8 +96,8 @@ namespace MarsRovers.Services
 
             // Find index of current direction in _compasPositions
             // Loop through instructuions
-            // If spin left then use decremented direction index to set rovers direction
-            // If spin right then use incremented direction index to set rovers direction
+            // If spin left then use decremented direction index to set rover's direction
+            // If spin right then use incremented direction index to set rover's direction
             // Don't forget about arrays edges (Index out of range)
 
             foreach (var instruction in spinInstructions.ToUpper())

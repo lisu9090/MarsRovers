@@ -29,7 +29,7 @@ namespace MarsRovers.Views
             _controller = controller;
         }
 
-        // View maps user input to propper controller actions
+        // View maps user's input to proper controller actions
 
         public string Process(string input)
         {

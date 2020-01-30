@@ -9,7 +9,7 @@ namespace MarsRovers
     {
         static void Main(string[] args)
         {
-            // This application is plit up into four leyers:
+            // This application is split up into four leyers:
             // Views acts alike to "User Itefrace" - routes user input to proper controllers actions
             // Controllers mediate between presentation layer and bussines logic layer -
             // - preprocess data for Services and response with operation staus to Views
@@ -25,7 +25,7 @@ namespace MarsRovers
 
             while(true)
             {
-                // Main method passes all user input to view and displays to user returned by View output
+                // Main method passes all user's input to view and displays to user returned by View output
                 userInput = Console.ReadLine();
                 programOutput = view.Process(userInput);
 
