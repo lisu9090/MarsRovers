@@ -14,7 +14,7 @@ Unit test are stored in MarsRovers.UnitTests project
 Usage:
 - The first line of input is the upper-right coordinates of the plateau, the lower-left coordinates are assumed to be 0,0.
 - The rest of the input is information pertaining to the rovers that have been deployed. Each rover has two lines of input. The first line gives the rover's position, and the second line is a series of instructions telling the rover how to explore the plateau.
-- Position input consists of two numbers (x, y) and letter direction letter {N, E, S, W}
+- Position input consists of two numbers (x, y) and direction letter {N, E, S, W}
 - Movement instructions are L - spin left, R- spin right, M - move forward
 
 example:
