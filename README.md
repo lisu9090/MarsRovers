@@ -18,16 +18,16 @@ Usage:
 - Movement instructions are L - spin left, R- spin right, M - move forward
 
 example:
-- input
-5 5
-1 2 N
-LMLMLMLMM
-3 3 E
-MMRMMRMRRM
+- input  
+5 5  
+1 2 N  
+LMLMLMLMM  
+3 3 E  
+MMRMMRMRRM  
 
-- expected output:
-1 3 N
-5 1 E
+- expected output:  
+1 3 N  
+5 1 E  
 
 commands:
 - PRINT - prints rovers positions
