@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MarsRovers.Services.Abstract
 {
-    interface IMissionService
+    public interface IMissionService
     {
         void CreatePlateau(int x, int y);
         void CreateRover(int x, int y, string direction);

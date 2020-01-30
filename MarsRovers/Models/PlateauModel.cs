@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MarsRovers.Models
 {
-    internal class PlateauModel : BaseModel
+    public class PlateauModel : BaseModel
     {
         public int X { get; set; }
         public int Y { get; set; }

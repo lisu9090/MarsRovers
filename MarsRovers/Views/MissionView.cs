@@ -9,13 +9,20 @@ using MarsRoversInfrastructure.Views;
 
 namespace MarsRovers.Views
 {
-    internal class MissionView : IView
+    public class MissionView : IView
     {
-        protected IMissionController _controller = new MissionController();
+        protected IMissionController _controller;
         protected readonly Regex _plateauRegex = new Regex(@"^\d{1,3} \d{1,3}$", RegexOptions.IgnoreCase);
         protected readonly Regex _roverRegex = new Regex(@"^\d{1,3} \d{1,3} [NESW]$", RegexOptions.IgnoreCase);
         protected readonly Regex _instructionsRegex = new Regex(@"^[LRM]+$", RegexOptions.IgnoreCase);
-       
+
+        public MissionView() : this(new MissionController()) { }
+
+        public MissionView(IMissionController controller)
+        {
+            _controller = controller;
+        }
+
         public string Process(string input)
         {
             string output = "";

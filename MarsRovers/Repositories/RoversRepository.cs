@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MarsRovers.Repositories
 {
-    internal class RoversRepository : IRoversRepository
+    public class RoversRepository : IRoversRepository
     {
         protected Stack<RoverModel> _roverStack = new Stack<RoverModel>();
         public void AddModel(BaseModel model)

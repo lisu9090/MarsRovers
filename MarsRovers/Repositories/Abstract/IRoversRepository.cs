@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MarsRovers.Repositories.Abstract
 {
-    interface IRoversRepository: IModelRepository
+    public interface IRoversRepository: IModelRepository
     {
         void UpdateRoverMovementInstructions(string data);
     }

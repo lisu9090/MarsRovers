@@ -10,11 +10,19 @@ using System.Text;
 
 namespace MarsRovers.Services
 {
-    internal class MissionService : IMissionService
+    public class MissionService : IMissionService
     {
-        protected IModelRepository _plateauRepository = new PlateauRepository();
-        protected IRoversRepository _roversRepository = new RoversRepository();
+        protected IModelRepository _plateauRepository;
+        protected IRoversRepository _roversRepository;
         protected readonly List<string> _compasPositions = new List<string>() {"N", "E", "S", "W" };
+
+        public MissionService() : this(new PlateauRepository(), new RoversRepository()) { }
+
+        public MissionService(IModelRepository plateauRepository, IRoversRepository roversRepository)
+        {
+            _plateauRepository = plateauRepository;
+            _roversRepository = roversRepository;
+        }
 
         public void CreatePlateau(int x, int y)
         {

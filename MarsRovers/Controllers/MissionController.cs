@@ -13,10 +13,16 @@ using System.Text;
 
 namespace MarsRovers.Controllers
 {
-    internal class MissionController : IMissionController
+    public class MissionController : IMissionController
     {
-        protected IMissionService _missionService = new MissionService();
-        
+        protected IMissionService _missionService;
+
+        public MissionController() : this(new MissionService()) { }
+        public MissionController(IMissionService missionService)
+        {
+            _missionService = missionService;
+        }
+
         public string CreatePlateau(string payload)
         {
             try

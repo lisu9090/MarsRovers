@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarsRovers", "MarsRovers\MarsRovers.csproj", "{7347B183-387E-4B5E-B940-F26F3C9A46D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsRoversInfrastructure", "MarsRoversInfrastructure\MarsRoversInfrastructure.csproj", "{B50BAD4D-4140-434D-BE94-3DA45320A322}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarsRoversInfrastructure", "MarsRoversInfrastructure\MarsRoversInfrastructure.csproj", "{B50BAD4D-4140-434D-BE94-3DA45320A322}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsRovers.UnitTests", "MarsRoversTest\MarsRovers.UnitTests.csproj", "{BE600CE9-A744-418D-A3A3-85F732B07850}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B50BAD4D-4140-434D-BE94-3DA45320A322}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B50BAD4D-4140-434D-BE94-3DA45320A322}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B50BAD4D-4140-434D-BE94-3DA45320A322}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE600CE9-A744-418D-A3A3-85F732B07850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE600CE9-A744-418D-A3A3-85F732B07850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE600CE9-A744-418D-A3A3-85F732B07850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE600CE9-A744-418D-A3A3-85F732B07850}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MarsRovers.Controllers.Abstract
 {
-    interface IMissionController
+    public interface IMissionController
     {
         string CreatePlateau(string payload);
         string CreateRover(string payload);

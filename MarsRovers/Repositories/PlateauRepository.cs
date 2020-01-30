@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MarsRovers.Repositories
 {
-    internal class PlateauRepository : IModelRepository
+    public class PlateauRepository : IModelRepository
     {
         protected Stack<BaseModel> _plateauStack = new Stack<BaseModel>();
         public void AddModel(BaseModel model)

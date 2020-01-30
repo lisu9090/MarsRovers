@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MarsRovers.Models
 {
-    internal class RoverModel : BaseModel, ICloneable
+    public class RoverModel : BaseModel, ICloneable
     {
         public int X { get; set; }
         public int Y { get; set; }
